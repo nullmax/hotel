@@ -1,5 +1,7 @@
 # hotel
 
+Shanghai hotel ratings analysis. Data source from booking.com
+
 ## requirements
 
 * python3.6
