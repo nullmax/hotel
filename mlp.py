@@ -22,7 +22,7 @@ unknown_data=data[0:98]
 
 data = data[99:]
 np.random.shuffle(data)
-x = data[:,0:8]
+x = data[:,0:9]
 y = data[:,9]
 
 x = preprocessing.scale(x)
@@ -38,7 +38,7 @@ x_test = x[n_train+1:]
 y_test = y[n_train+1:]
 
 model = Sequential()
-model.add(Dense(128, activation='relu', input_dim=8))
+model.add(Dense(128, activation='relu', input_dim=9))
 model.add(Dropout(0.5))
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
@@ -58,5 +58,5 @@ score = model.evaluate(x_test, y_test, batch_size=32)
 for i in range(len(score)):
     print(model.metrics_names[i], ": ", score[i])
     
-unknown_data=unknown_data[:,0:8]
+unknown_data=unknown_data[:,0:9]
 result = model.predict_classes(unknown_data, batch_size=32)
